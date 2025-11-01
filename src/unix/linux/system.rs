@@ -336,7 +336,7 @@ impl SystemInner {
 
     // Uses roughly the same calculation as the unix 'free' for the used memory
     pub(crate) fn free_like_used_memory(&self) -> u64 {
-        self.mem_free - self.mem_free - self.mem_page_cache - self.mem_buffers - self.mem_slab_reclaimable
+        self.mem_total - self.mem_free - self.mem_page_cache - self.mem_buffers - self.mem_slab_reclaimable
     }
 
     pub(crate) fn total_swap(&self) -> u64 {
