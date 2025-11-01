@@ -620,6 +620,10 @@ impl SystemInfo {
         }
     }
 
+    pub(crate) fn free_like_used_memory(&self) -> u64 {
+        self.get_used_memory()
+    }
+
     fn get_free_memory(&self) -> u64 {
         let mut buffers_mem: u64 = 0;
         let mut inactive_mem: u64 = 0;

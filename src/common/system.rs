@@ -588,6 +588,19 @@ impl System {
         self.inner.used_memory()
     }
 
+    /// Returns the amount of used RAM in bytes.
+    /// Tries to imitate the calculation of 'free' on unix, returns 'self.used_memory()' on other platforms
+    ///
+    /// ```no_run
+    /// use sysinfo::System;
+    ///
+    /// let s = System::new_all();
+    /// println!("{} bytes", s.used_memory());
+    /// ```
+    pub fn free_like_used_memory(&self) -> u64 {
+        self.inner.free_like_used_memory()
+    }
+
     /// Returns the SWAP size in bytes.
     ///
     /// ```no_run

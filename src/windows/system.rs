@@ -340,6 +340,10 @@ impl SystemInner {
         self.mem_total - self.mem_available
     }
 
+    pub(crate) fn free_like_used_memory(&self) -> u64 {
+        self.used_memory()
+    }
+
     pub(crate) fn total_swap(&self) -> u64 {
         self.swap_total
     }
